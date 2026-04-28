@@ -1,0 +1,764 @@
+{
+  "Type": "Serial",
+  "Interactions": [
+    {
+      "$Comment": "stomp 1",
+      "Type": "Simple",
+      "Effects": {
+        "ItemPlayerAnimationsId": "Golem_Crystal_Earth_Default",
+        "ItemAnimationId": "Stomp"
+      },
+      "RunTime": 0.5
+    },
+    {
+      "Type": "Parallel",
+      "Interactions": [
+        {
+          "Interactions": [
+            {
+              "Type": "Selector",
+              "RunTime": 0.167,
+              "Selector": {
+                "Id": "AOECircle",
+                "Range": 8
+              },
+              "HitEntity": {
+                "Interactions": [
+                  {
+                    "Type": "Replace",
+                    "DefaultValue": {
+                      "Interactions": [
+                        "Frost_Golem_Stomp_Damage"
+                      ]
+                    },
+                    "Var": "Stomp_Damage"
+                  },
+                  {
+                    "Type": "ApplyEffect",
+                    "Entity": "Target",
+                    "EffectId": "Slow"
+                  }
+                ]
+              },
+              "Next": {
+                "Type": "Simple",
+                "RunTime": 0.166
+              }
+            }
+          ]
+        },
+        {
+          "Interactions": [
+            {
+              "Type": "Simple",
+              "RunTime": 0.25,
+              "Effects": {
+                "WorldSoundEventId": "SFX_Golem_Earth_Stomp",
+                "Particles": [
+                  {
+                    "PositionOffset": {
+                      "X": 0,
+                      "Y": 0,
+                      "Z": 0
+                    },
+                    "TargetEntityPart": "Entity",
+                    "SystemId": "Explosion_Medium"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "$Comment": "Spin Attack",
+      "Type": "Simple",
+      "Effects": {
+        "ItemPlayerAnimationsId": "Golem_Crystal_Earth_Default",
+        "ItemAnimationId": "SpinHeavy"
+      },
+      "RunTime": 0.01,
+      "Next": {
+        "Type": "Parallel",
+        "Interactions": [
+          {
+            "Interactions": [
+              {
+                "$Comment": "Hit 1",
+                "Type": "Selector",
+                "RunTime": 0.25,
+                "Selector": {
+                  "Id": "Horizontal",
+                  "Direction": "ToLeft",
+                  "TestLineOfSight": true,
+                  "ExtendTop": 0,
+                  "ExtendBottom": 2,
+                  "StartDistance": 0.5,
+                  "EndDistance": 4.25,
+                  "Length": 360,
+                  "RollOffset": 0,
+                  "YawStartOffset": -90
+                },
+                "HitEntity": {
+                  "Interactions": [
+                    {
+                      "Type": "Replace",
+                      "DefaultValue": {
+                        "Interactions": [
+                          "Golem_Frost_Spin_Heavy_Damage"
+                        ]
+                      },
+                      "Var": "Spin_Heavy_Damage",
+                      "Effects": {
+                        "WorldSoundEventId": "SFX_Ice_Hit",
+                        "Particles": [
+                          {
+                            "PositionOffset": {
+                              "X": 0,
+                              "Y": 0,
+                              "Z": 3
+                            },
+                            "TargetEntityPart": "Entity",
+                            "SystemId": "Block_Break_Ice"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                "Next": {
+                  "$Comment": "Hit 2",
+                  "Type": "Selector",
+                  "RunTime": 0.25,
+                  "Selector": {
+                    "Id": "Horizontal",
+                    "Direction": "ToLeft",
+                    "TestLineOfSight": true,
+                    "ExtendTop": 0,
+                    "ExtendBottom": 2,
+                    "StartDistance": 0.5,
+                    "EndDistance": 4.25,
+                    "Length": 360,
+                    "RollOffset": 0,
+                    "YawStartOffset": -90
+                  },
+                  "HitEntity": {
+                    "Interactions": [
+                      {
+                        "Type": "Replace",
+                        "DefaultValue": {
+                          "Interactions": [
+                            "Golem_Frost_Spin_Heavy_Damage"
+                          ]
+                        },
+                        "Var": "Spin_Heavy_Damage",
+                        "Effects": {
+                          "WorldSoundEventId": "SFX_Ice_Hit",
+                          "Particles": [
+                            {
+                              "PositionOffset": {
+                                "X": 0,
+                                "Y": 0,
+                                "Z": 3
+                              },
+                              "TargetEntityPart": "Entity",
+                              "SystemId": "Block_Break_Ice"
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  },
+                  "Next": {
+                    "$Comment": "Hit 3",
+                    "Type": "Selector",
+                    "RunTime": 0.25,
+                    "Selector": {
+                      "Id": "Horizontal",
+                      "Direction": "ToLeft",
+                      "TestLineOfSight": true,
+                      "ExtendTop": 0,
+                      "ExtendBottom": 2,
+                      "StartDistance": 0.5,
+                      "EndDistance": 4.25,
+                      "Length": 360,
+                      "RollOffset": 0,
+                      "YawStartOffset": -90
+                    },
+                    "HitEntity": {
+                      "Interactions": [
+                        {
+                          "Type": "Replace",
+                          "DefaultValue": {
+                            "Interactions": [
+                              "Golem_Frost_Spin_Heavy_Damage"
+                            ]
+                          },
+                          "Var": "Spin_Heavy_Damage",
+                          "Effects": {
+                            "WorldSoundEventId": "SFX_Ice_Hit",
+                            "Particles": [
+                              {
+                                "PositionOffset": {
+                                  "X": 0,
+                                  "Y": 0,
+                                  "Z": 3
+                                },
+                                "TargetEntityPart": "Entity",
+                                "SystemId": "Block_Break_Ice"
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    "Next": {
+                      "$Comment": "Hit 4",
+                      "Type": "Selector",
+                      "RunTime": 0.25,
+                      "Selector": {
+                        "Id": "Horizontal",
+                        "Direction": "ToLeft",
+                        "TestLineOfSight": true,
+                        "ExtendTop": 0,
+                        "ExtendBottom": 2,
+                        "StartDistance": 0.5,
+                        "EndDistance": 4.25,
+                        "Length": 360,
+                        "RollOffset": 0,
+                        "YawStartOffset": -90
+                      },
+                      "HitEntity": {
+                        "Interactions": [
+                          {
+                            "Type": "Replace",
+                            "DefaultValue": {
+                              "Interactions": [
+                                "Golem_Frost_Spin_Heavy_Damage"
+                              ]
+                            },
+                            "Var": "Spin_Heavy_Damage",
+                            "Effects": {
+                              "WorldSoundEventId": "SFX_Ice_Hit",
+                              "Particles": [
+                                {
+                                  "PositionOffset": {
+                                    "X": 0,
+                                    "Y": 0,
+                                    "Z": 3
+                                  },
+                                  "TargetEntityPart": "Entity",
+                                  "SystemId": "Block_Break_Ice"
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      },
+                      "Next": {
+                        "$Comment": "Hit 5",
+                        "Type": "Selector",
+                        "RunTime": 0.25,
+                        "Selector": {
+                          "Id": "Horizontal",
+                          "Direction": "ToLeft",
+                          "TestLineOfSight": true,
+                          "ExtendTop": 0,
+                          "ExtendBottom": 2,
+                          "StartDistance": 0.5,
+                          "EndDistance": 4.25,
+                          "Length": 360,
+                          "RollOffset": 0,
+                          "YawStartOffset": -90
+                        },
+                        "HitEntity": {
+                          "Interactions": [
+                            {
+                              "Type": "Replace",
+                              "DefaultValue": {
+                                "Interactions": [
+                                  "Golem_Frost_Spin_Heavy_Damage"
+                                ]
+                              },
+                              "Var": "Spin_Heavy_Damage",
+                              "Effects": {
+                                "WorldSoundEventId": "SFX_Ice_Hit",
+                                "Particles": [
+                                  {
+                                    "PositionOffset": {
+                                      "X": 0,
+                                      "Y": 0,
+                                      "Z": 3
+                                    },
+                                    "TargetEntityPart": "Entity",
+                                    "SystemId": "Block_Break_Ice"
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        },
+                        "Next": {
+                          "$Comment": "Hit 6",
+                          "Type": "Selector",
+                          "RunTime": 0.25,
+                          "Selector": {
+                            "Id": "Horizontal",
+                            "Direction": "ToLeft",
+                            "TestLineOfSight": true,
+                            "ExtendTop": 0,
+                            "ExtendBottom": 2,
+                            "StartDistance": 0.5,
+                            "EndDistance": 4.25,
+                            "Length": 360,
+                            "RollOffset": 0,
+                            "YawStartOffset": -90
+                          },
+                          "HitEntity": {
+                            "Interactions": [
+                              {
+                                "Type": "Replace",
+                                "DefaultValue": {
+                                  "Interactions": [
+                                    "Golem_Frost_Spin_Heavy_Damage"
+                                  ]
+                                },
+                                "Var": "Spin_Heavy_Damage",
+                                "Effects": {
+                                  "WorldSoundEventId": "SFX_Ice_Hit",
+                                  "Particles": [
+                                    {
+                                      "PositionOffset": {
+                                        "X": 0,
+                                        "Y": 0,
+                                        "Z": 3
+                                      },
+                                      "TargetEntityPart": "Entity",
+                                      "SystemId": "Block_Break_Ice"
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          },
+                          "Next": {
+                            "$Comment": "Hit 7",
+                            "Type": "Selector",
+                            "RunTime": 0.25,
+                            "Selector": {
+                              "Id": "Horizontal",
+                              "Direction": "ToLeft",
+                              "TestLineOfSight": true,
+                              "ExtendTop": 0,
+                              "ExtendBottom": 2,
+                              "StartDistance": 0.5,
+                              "EndDistance": 4.25,
+                              "Length": 360,
+                              "RollOffset": 0,
+                              "YawStartOffset": -90
+                            },
+                            "HitEntity": {
+                              "Interactions": [
+                                {
+                                  "Type": "Replace",
+                                  "DefaultValue": {
+                                    "Interactions": [
+                                      "Golem_Frost_Spin_Heavy_Damage"
+                                    ]
+                                  },
+                                  "Var": "Spin_Heavy_Damage",
+                                  "Effects": {
+                                    "WorldSoundEventId": "SFX_Ice_Hit",
+                                    "Particles": [
+                                      {
+                                        "PositionOffset": {
+                                          "X": 0,
+                                          "Y": 0,
+                                          "Z": 3
+                                        },
+                                        "TargetEntityPart": "Entity",
+                                        "SystemId": "Block_Break_Ice"
+                                      }
+                                    ]
+                                  }
+                                }
+                              ]
+                            },
+                            "Next": {
+                              "$Comment": "Hit 8",
+                              "Type": "Selector",
+                              "RunTime": 0.25,
+                              "Selector": {
+                                "Id": "Horizontal",
+                                "Direction": "ToLeft",
+                                "TestLineOfSight": true,
+                                "ExtendTop": 0,
+                                "ExtendBottom": 2,
+                                "StartDistance": 0.5,
+                                "EndDistance": 4.25,
+                                "Length": 360,
+                                "RollOffset": 0,
+                                "YawStartOffset": -90
+                              },
+                              "HitEntity": {
+                                "Interactions": [
+                                  {
+                                    "Type": "Replace",
+                                    "DefaultValue": {
+                                      "Interactions": [
+                                        "Golem_Frost_Spin_Heavy_Damage"
+                                      ]
+                                    },
+                                    "Var": "Spin_Heavy_Damage",
+                                    "Effects": {
+                                      "WorldSoundEventId": "SFX_Ice_Hit",
+                                      "Particles": [
+                                        {
+                                          "PositionOffset": {
+                                            "X": 0,
+                                            "Y": 0,
+                                            "Z": 3
+                                          },
+                                          "TargetEntityPart": "Entity",
+                                          "SystemId": "Block_Break_Ice"
+                                        }
+                                      ]
+                                    }
+                                  }
+                                ]
+                              },
+                              "Next": {
+                                "$Comment": "Hit 9",
+                                "Type": "Selector",
+                                "RunTime": 0.25,
+                                "Selector": {
+                                  "Id": "Horizontal",
+                                  "Direction": "ToLeft",
+                                  "TestLineOfSight": true,
+                                  "ExtendTop": 0,
+                                  "ExtendBottom": 2,
+                                  "StartDistance": 0.5,
+                                  "EndDistance": 4.25,
+                                  "Length": 360,
+                                  "RollOffset": 0,
+                                  "YawStartOffset": -90
+                                },
+                                "HitEntity": {
+                                  "Interactions": [
+                                    {
+                                      "Type": "Replace",
+                                      "DefaultValue": {
+                                        "Interactions": [
+                                          "Golem_Frost_Spin_Heavy_Damage"
+                                        ]
+                                      },
+                                      "Var": "Spin_Heavy_Damage",
+                                      "Effects": {
+                                        "WorldSoundEventId": "SFX_Ice_Hit",
+                                        "Particles": [
+                                          {
+                                            "PositionOffset": {
+                                              "X": 0,
+                                              "Y": 0,
+                                              "Z": 3
+                                            },
+                                            "TargetEntityPart": "Entity",
+                                            "SystemId": "Block_Break_Ice"
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                },
+                                "Next": {
+                                  "$Comment": "Hit 10",
+                                  "Type": "Selector",
+                                  "RunTime": 0.25,
+                                  "Selector": {
+                                    "Id": "Horizontal",
+                                    "Direction": "ToLeft",
+                                    "TestLineOfSight": true,
+                                    "ExtendTop": 0,
+                                    "ExtendBottom": 2,
+                                    "StartDistance": 0.5,
+                                    "EndDistance": 4.25,
+                                    "Length": 360,
+                                    "RollOffset": 0,
+                                    "YawStartOffset": -90
+                                  },
+                                  "HitEntity": {
+                                    "Interactions": [
+                                      {
+                                        "Type": "Replace",
+                                        "DefaultValue": {
+                                          "Interactions": [
+                                            "Golem_Frost_Spin_Heavy_Damage"
+                                          ]
+                                        },
+                                        "Var": "Spin_Heavy_Damage",
+                                        "Effects": {
+                                          "WorldSoundEventId": "SFX_Ice_Hit",
+                                          "Particles": [
+                                            {
+                                              "PositionOffset": {
+                                                "X": 0,
+                                                "Y": 0,
+                                                "Z": 3
+                                              },
+                                              "TargetEntityPart": "Entity",
+                                              "SystemId": "Block_Break_Ice"
+                                            }
+                                          ]
+                                        }
+                                      }
+                                    ]
+                                  },
+                                  "Next": {
+                                    "$Comment": "Hit 11",
+                                    "Type": "Selector",
+                                    "RunTime": 0.25,
+                                    "Selector": {
+                                      "Id": "Horizontal",
+                                      "Direction": "ToLeft",
+                                      "TestLineOfSight": true,
+                                      "ExtendTop": 0,
+                                      "ExtendBottom": 2,
+                                      "StartDistance": 0.5,
+                                      "EndDistance": 4.25,
+                                      "Length": 360,
+                                      "RollOffset": 0,
+                                      "YawStartOffset": -90
+                                    },
+                                    "HitEntity": {
+                                      "Interactions": [
+                                        {
+                                          "Type": "Replace",
+                                          "DefaultValue": {
+                                            "Interactions": [
+                                              "Golem_Frost_Spin_Heavy_Damage"
+                                            ]
+                                          },
+                                          "Var": "Spin_Heavy_Damage",
+                                          "Effects": {
+                                            "WorldSoundEventId": "SFX_Ice_Hit",
+                                            "Particles": [
+                                              {
+                                                "PositionOffset": {
+                                                  "X": 0,
+                                                  "Y": 0,
+                                                  "Z": 3
+                                                },
+                                                "TargetEntityPart": "Entity",
+                                                "SystemId": "Block_Break_Ice"
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "Next": {
+                                      "$Comment": "Hit 12",
+                                      "Type": "Selector",
+                                      "RunTime": 0.25,
+                                      "Selector": {
+                                        "Id": "Horizontal",
+                                        "Direction": "ToLeft",
+                                        "TestLineOfSight": true,
+                                        "ExtendTop": 0,
+                                        "ExtendBottom": 2,
+                                        "StartDistance": 0.5,
+                                        "EndDistance": 4.25,
+                                        "Length": 360,
+                                        "RollOffset": 0,
+                                        "YawStartOffset": -90
+                                      },
+                                      "HitEntity": {
+                                        "Interactions": [
+                                          {
+                                            "Type": "Replace",
+                                            "DefaultValue": {
+                                              "Interactions": [
+                                                "Golem_Frost_Spin_Heavy_Damage"
+                                              ]
+                                            },
+                                            "Var": "Spin_Heavy_Damage",
+                                            "Effects": {
+                                              "WorldSoundEventId": "SFX_Ice_Hit",
+                                              "Particles": [
+                                                {
+                                                  "PositionOffset": {
+                                                    "X": 0,
+                                                    "Y": 0,
+                                                    "Z": 3
+                                                  },
+                                                  "TargetEntityPart": "Entity",
+                                                  "SystemId": "Block_Break_Ice"
+                                                }
+                                              ]
+                                            }
+                                          }
+                                        ]
+                                      },
+                                      "Next": {
+                                        "$Comment": "Hit 13",
+                                        "Type": "Selector",
+                                        "RunTime": 0.25,
+                                        "Selector": {
+                                          "Id": "Horizontal",
+                                          "Direction": "ToLeft",
+                                          "TestLineOfSight": true,
+                                          "ExtendTop": 0,
+                                          "ExtendBottom": 2,
+                                          "StartDistance": 0.5,
+                                          "EndDistance": 4.25,
+                                          "Length": 360,
+                                          "RollOffset": 0,
+                                          "YawStartOffset": -90
+                                        },
+                                        "HitEntity": {
+                                          "Interactions": [
+                                            {
+                                              "Type": "Replace",
+                                              "DefaultValue": {
+                                                "Interactions": [
+                                                  "Golem_Frost_Spin_Heavy_Damage"
+                                                ]
+                                              },
+                                              "Var": "Spin_Heavy_Damage",
+                                              "Effects": {
+                                                "WorldSoundEventId": "SFX_Ice_Hit",
+                                                "Particles": [
+                                                  {
+                                                    "PositionOffset": {
+                                                      "X": 0,
+                                                      "Y": 0,
+                                                      "Z": 3
+                                                    },
+                                                    "TargetEntityPart": "Entity",
+                                                    "SystemId": "Block_Break_Ice"
+                                                  }
+                                                ]
+                                              }
+                                            }
+                                          ]
+                                        },
+                                        "Next": {
+                                          "$Comment": "Hit 14",
+                                          "Type": "Selector",
+                                          "RunTime": 0.25,
+                                          "Selector": {
+                                            "Id": "Horizontal",
+                                            "Direction": "ToLeft",
+                                            "TestLineOfSight": true,
+                                            "ExtendTop": 0,
+                                            "ExtendBottom": 2,
+                                            "StartDistance": 0.5,
+                                            "EndDistance": 4.25,
+                                            "Length": 360,
+                                            "RollOffset": 0,
+                                            "YawStartOffset": -90
+                                          },
+                                          "HitEntity": {
+                                            "Interactions": [
+                                              {
+                                                "Type": "Replace",
+                                                "DefaultValue": {
+                                                  "Interactions": [
+                                                    "Golem_Frost_Spin_Heavy_Damage_Final"
+                                                  ]
+                                                },
+                                                "Var": "Spin_Heavy_Damage",
+                                                "Effects": {
+                                                  "WorldSoundEventId": "SFX_Ice_Hit",
+                                                  "Particles": [
+                                                    {
+                                                      "PositionOffset": {
+                                                        "X": 0,
+                                                        "Y": 0,
+                                                        "Z": 3
+                                                      },
+                                                      "TargetEntityPart": "Entity",
+                                                      "SystemId": "Block_Break_Ice"
+                                                    }
+                                                  ]
+                                                }
+                                              }
+                                            ]
+                                          },
+                                          "Next": {
+                                            "$Comment": "Hit 15",
+                                            "Type": "Selector",
+                                            "RunTime": 0.25,
+                                            "Selector": {
+                                              "Id": "Horizontal",
+                                              "Direction": "ToLeft",
+                                              "TestLineOfSight": true,
+                                              "ExtendTop": 0,
+                                              "ExtendBottom": 2,
+                                              "StartDistance": 0.5,
+                                              "EndDistance": 4.25,
+                                              "Length": 360,
+                                              "RollOffset": 0,
+                                              "YawStartOffset": -90
+                                            },
+                                            "HitEntity": {
+                                              "Interactions": [
+                                                {
+                                                  "Type": "Replace",
+                                                  "DefaultValue": {
+                                                    "Interactions": [
+                                                      "Golem_Frost_Spin_Heavy_Damage_Final"
+                                                    ]
+                                                  },
+                                                  "Var": "Spin_Heavy_Damage",
+                                                  "Effects": {
+                                                    "WorldSoundEventId": "SFX_Ice_Hit",
+                                                    "Particles": [
+                                                      {
+                                                        "PositionOffset": {
+                                                          "X": 0,
+                                                          "Y": 0,
+                                                          "Z": 3
+                                                        },
+                                                        "TargetEntityPart": "Entity",
+                                                        "SystemId": "Block_Break_Ice"
+                                                      }
+                                                    ]
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "Interactions": [
+              {
+                "Type": "Simple",
+                "RunTime": 1.5,
+                "Effects": {
+                  "WorldSoundEventId": "SFX_Golem_Earth_Swing"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "Type": "Simple",
+  "RunTime": 0.8,
+  "Effects": {
+    "ItemPlayerAnimationsId": "Golem_Crystal_Earth_Default",
+    "ItemAnimationId": "GroundSlam",
+    "WorldSoundEventId": "SFX_Golem_Firesteel_Wake"
+  },
+  "Next": {
+    "Type": "Parallel",
+    "$Comment": "Fires the Damage and the Particles at the exact same time",
+    "Interactions": [
+      {
+        "Interactions": [
+          {
+            "Type": "Selector",
+            "RunTime": 0.167,
+            "Selector": {
+              "Id": "AOECircle",
+              "Range": 20
+            },
+            "HitEntity": {
+              "Interactions": [
+                {
+                  "Type": "Replace",
+                  "Var": "Stomp_Damage",
+                  "DefaultValue": {
+                    "Interactions": [
+                      "Flame_Golem_Stomp_Damage"
+                    ]
+                  }
+                }
+              ]
+            },
+            "Next": {
+              "Type": "Simple",
+              "$Comment": "Pad the interaction length",
+              "RunTime": 0.166
+            }
+          }
+        ]
+      },
+      {
+        "Interactions": [
+          {
+            "Type": "Simple",
+            "RunTime": 0.25,
+            "Effects": {
+              "WorldSoundEventId": "SFX_Golem_Earth_Stomp",
+              "Particles": [
+                {
+                  "SystemId": "Explosion_Big",
+                  "TargetEntityPart": "Entity",
+                  "TargetNodeName": "Chest",
+                  "PositionOffset": {
+                    "X": 0,
+                    "Y": 0,
+                    "Z": 3
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

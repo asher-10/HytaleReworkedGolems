@@ -1,0 +1,22 @@
+{
+  "Type": "Simple",
+  "RunTime": 1,
+  "Next": {
+    "Type": "Simple",
+    "Effects": {
+      "ItemPlayerAnimationsId": "Golem_Crystal_Thunder_Default",
+      "ItemAnimationId": "Spin"
+    },
+    "$Comment": "Prepare Delay",
+    "RunTime": 0.5,
+    "Next": {
+      "Type": "Projectile",
+      "Config": "Projectile_Config_Flame_Golem_Ball",
+      "RunTime": 0.2,
+      "Effects": {},
+      "Tags": {
+        "AimingReference": []
+      }
+    }
+  }
+}

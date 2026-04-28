@@ -1,0 +1,30 @@
+{
+  "Parent": "DamageEntityParent",
+  "DamageCalculator": {
+    "BaseDamage": {
+      "Physical": 25
+    }
+  },
+  "DamageEffects": {
+    "Knockback": {
+      "Force": 2,
+      "RelativeX": 0,
+      "RelativeZ": -5,
+      "VelocityY": 13
+    },
+    "WorldSoundEventId": "SFX_Deployable_Totem_Slowing_Despawn",
+    "LocalSoundEventId": "SFX_Deployable_Totem_Slowing_Despawn",
+    "WorldParticles": [
+      {
+        "SystemId": "Impact_Sword_Basic"
+      }
+    ]
+  },
+  "Interactions": [
+                {
+                  "Type": "ApplyEffect",
+                  "Entity": "Target",
+                  "EffectId": "Burn"
+                }
+  ]
+}

@@ -1,0 +1,306 @@
+{
+  "Type": "CombatActionEvaluator",
+  "TargetMemoryDuration": 10,
+  "CombatActionEvaluator": {
+    "RunConditions": [
+      {
+        "Type": "TimeSinceLastUsed",
+        "Curve": {
+          "ResponseCurve": "Linear",
+          "XRange": [0, 5]
+        }
+      },
+      {
+        "Type": "Randomiser",
+        "MinValue": 0.9,
+        "MaxValue": 1
+      }
+    ],
+    "MinRunUtility": 0.5,
+    "MinActionUtility": 0.01,
+    "AvailableActions": {
+      "Phase2Transition": {
+        "Type": "Ability",
+        "Description": "Transition When below 50% HP",
+        "Ability": "Flame_Phase2_Transition_RI",
+        "Target": "Hostile",
+        "AttackDistanceRange": [0, 20],
+        "Conditions": [
+          {
+            "Type": "OwnStatAbsolute",
+            "Stat": "Health",
+            "Curve": {
+              "Type": "Switch",
+              "InitialState": 1,
+              "FinalState": 0,
+              "SwitchPoint": 200
+            }
+          },
+          {
+            "Type": "TimeSinceLastUsed",
+            "Curve": {
+              "Type": "Switch",
+              "InitialState": 0,
+              "FinalState": 1,
+              "SwitchPoint": 999
+            }
+          },
+          {
+            "Type": "TargetDistance",
+            "Curve": {
+              "ResponseCurve": "SimpleDescendingLogistic",
+              "XRange": [0, 20]
+            }
+          }
+        ]
+      },
+      "RepeatStomp": {
+        "Type": "Ability",
+        "Description": "Use Stomp attack",
+        "Ability": "Flame_Golem_Repeat_Stomp_RI",
+        "Target": "Hostile",
+        "WeaponSlot": 0,
+        "AttackDistanceRange": [4, 8],
+        "Conditions": [
+          {
+            "Type": "TimeSinceLastUsed",
+            "Curve": {
+              "Type": "Switch",
+              "SwitchPoint": 25
+            }
+          },
+          {
+            "Type": "Randomiser",
+            "MinValue": 0.8,
+            "MaxValue": 1
+          }
+        ]
+      },
+      "LargeBomb": {
+        "Type": "Ability",
+        "Description": "Special bomb attack",
+        "Ability": "Flame_Golem_Fire_Ball_RI",
+        "Target": "Hostile",
+        "WeaponSlot": 0,
+        "RequireAiming": true,
+        "ChargeFor": 1,
+        "AttackDistanceRange": [7, 15],
+        "Conditions": [
+          {
+            "Type": "TimeSinceLastUsed",
+            "Curve": {
+              "Type": "Switch",
+              "SwitchPoint": 18
+            }
+          },
+          {
+            "Type": "TargetDistance",
+            "Curve": {
+              "ResponseCurve": "Linear",
+              "XRange": [7, 15]
+            }
+          },
+          {
+            "Type": "Randomiser",
+            "MinValue": 0.8,
+            "MaxValue": 1
+          },
+          {
+            "Type": "OwnStatAbsolute",
+            "Stat": "Health",
+            "Curve": {
+              "Type": "Switch",
+              "InitialState": 0,
+              "FinalState": 1,
+              "SwitchPoint": 200
+            }
+          }
+        ]
+      },
+      "ScatterShot": {
+        "Type": "Ability",
+        "Description": "Special bomb attack",
+        "Ability": "Flame_Golem_Scatter_Shot_RI",
+        "Target": "Hostile",
+        "WeaponSlot": 0,
+        "RequireAiming": true,
+        "ChargeFor": 1,
+        "AttackDistanceRange": [7, 15],
+        "Conditions": [
+          {
+            "Type": "TimeSinceLastUsed",
+            "Curve": {
+              "Type": "Switch",
+              "SwitchPoint": 18
+            }
+          },
+          {
+            "Type": "TargetDistance",
+            "Curve": {
+              "ResponseCurve": "Linear",
+              "XRange": [7, 15]
+            }
+          },
+          {
+            "Type": "Randomiser",
+            "MinValue": 0.8,
+            "MaxValue": 1
+          },
+          {
+            "Type": "OwnStatAbsolute",
+            "Stat": "Health",
+            "Curve": {
+              "Type": "Switch",
+              "InitialState": 1,
+              "FinalState": 0,
+              "SwitchPoint": 200
+            }
+          }
+        ]
+      },
+      "RightPunch": {
+        "Type": "Ability",
+        "Description": "Use Melee attack",
+        "Ability": "Flame_Golem_Attack_Right_RI",
+        "Target": "Hostile",
+        "WeaponSlot": 0,
+        "FailureTimeout": 5,
+        "AttackDistanceRange": [1.5, 3],
+        "Conditions": [
+          {
+            "Type": "TargetDistance",
+            "Curve": {
+              "ResponseCurve": "SimpleDescendingLogistic",
+              "XRange": [1.5, 3]
+            }
+          },
+          {
+            "Type": "Randomiser",
+            "MinValue": 0.8,
+            "MaxValue": 1
+          },
+          {
+            "Type": "OwnStatAbsolute",
+            "Stat": "Health",
+            "Curve": {
+              "Type": "Switch",
+              "InitialState": 0,
+              "FinalState": 1,
+              "SwitchPoint": 200
+            }
+          }
+        ]
+      },
+      "LeftPunch": {
+        "Type": "Ability",
+        "Description": "Use Melee attack",
+        "Ability": "Flame_Golem_Attack_Left_RI",
+        "Target": "Hostile",
+        "WeaponSlot": 0,
+        "FailureTimeout": 5,
+        "AttackDistanceRange": [1.5, 3],
+        "Conditions": [
+          {
+            "Type": "TargetDistance",
+            "Curve": {
+              "ResponseCurve": "SimpleDescendingLogistic",
+              "XRange": [1.5, 3]
+            }
+          },
+          {
+            "Type": "Randomiser",
+            "MinValue": 0.8,
+            "MaxValue": 1
+          },
+          {
+            "Type": "OwnStatAbsolute",
+            "Stat": "Health",
+            "Curve": {
+              "Type": "Switch",
+              "InitialState": 0,
+              "FinalState": 1,
+              "SwitchPoint": 200
+            }
+          }
+        ]
+      },
+      "Phase2Clap": {
+        "Type": "Ability",
+        "Description": "Use Melee attack",
+        "Ability": "Flame_Golem_Slam_Damage_RI",
+        "Target": "Hostile",
+        "WeaponSlot": 0,
+        "FailureTimeout": 5,
+        "AttackDistanceRange": [0, 3],
+        "Conditions": [
+          {
+            "Type": "TargetDistance",
+            "Curve": {
+              "ResponseCurve": "SimpleDescendingLogistic",
+              "XRange": [0, 3]
+            }
+          },
+          {
+            "Type": "Randomiser",
+            "MinValue": 0.8,
+            "MaxValue": 1
+          },
+          {
+            "Type": "OwnStatAbsolute",
+            "Stat": "Health",
+            "Curve": {
+              "Type": "Switch",
+              "InitialState": 1,
+              "FinalState": 0,
+              "SwitchPoint": 200
+            }
+          }
+        ]
+      },
+      "SpinAttack": {
+        "Type": "Ability",
+        "Description": "Use Spin attack",
+        "Ability": "Flame_Golem_Spin_RI",
+        "Target": "Hostile",
+        "WeaponSlot": 0,
+        "FailureTimeout": 5,
+        "AttackDistanceRange": [1.5, 4],
+        "Conditions": [
+          {
+            "Type": "TimeSinceLastUsed",
+            "Curve": {
+              "Type": "Switch",
+              "SwitchPoint": 6
+            }
+          },
+          {
+            "Type": "TargetDistance",
+            "Curve": {
+              "ResponseCurve": "SimpleDescendingLogistic",
+              "XRange": [1.5, 4]
+            }
+          },
+          {
+            "Type": "Randomiser",
+            "MinValue": 0.8,
+            "MaxValue": 1
+          }
+        ]
+      }
+    },
+    "ActionSets": {
+      "Default": {
+        "Actions": [
+          "RepeatStomp",
+          "RightPunch",
+          "Phase2Transition",
+          "LeftPunch",
+          "LargeBomb",
+          "ScatterShot",
+          "Phase2Clap",
+          "SpinAttack"
+        ]
+      }
+    }
+  }
+}

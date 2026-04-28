@@ -1,0 +1,13 @@
+{
+  "Cooldown": {
+    "Cooldown": 2
+  },
+  "Interactions": [
+    "Frost_Golem_Ice_Shot"
+  ],
+  "Tags": {
+    "Attack": [
+      "Ranged"
+    ]
+  }
+}

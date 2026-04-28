@@ -1,0 +1,22 @@
+{
+  "Type": "Variant",
+  "Reference": "Template_Intelligent",
+  "Modify": {
+    "Appearance": "Golem_Crystal_Flame",
+    "_CombatConfig": "CAE_Flame_Golem",
+    "DropList": "Empty",
+    "MaxHealth": 400,
+    "NameTranslationKey": {
+      "Compute": "NameTranslationKey"
+    },
+    "UseCombatActionEvaluator": true,
+    "MaxSpeed": 4,
+    "Weapons": []
+  },
+  "Parameters": {
+    "NameTranslationKey": {
+      "Value": "server.npcRoles.Goblin_Duke.name",
+      "Description": "Translation key for NPC name display"
+    }
+  }
+}

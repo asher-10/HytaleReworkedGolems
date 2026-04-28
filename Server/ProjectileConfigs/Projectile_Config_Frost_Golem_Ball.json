@@ -1,0 +1,152 @@
+{
+  "Model": "Frost_Golem_Ball",
+  "SpawnOffset": {
+    "X": 0.0,
+    "Y": 0.0,
+    "Z": 0.0
+  },
+  "SpawnRotationOffset": {
+    "Pitch": 0.0,
+    "Yaw": 15.0,
+    "Roll": 15.0
+  },
+  "LaunchForce": 39.0,
+  "Physics": {
+    "Type": "Standard",
+    "Gravity": 15.0,
+    "TerminalVelocityAir": 75.0,
+    "TerminalVelocityWater": 35.0,
+    "RotationMode": "VelocityDamped",
+    "Bounciness": 1,
+    "BounceCount": 11,
+    "BounceLimit": 0.2,
+    "SticksVertically": false
+  },
+  "Interactions": {
+    "ProjectileHit": {
+      "Cooldown": {
+        "Cooldown": 0.0
+      },
+      "Interactions": [
+        {
+          "Type": "DamageEntity",
+          "DamageCalculator": {
+            "BaseDamage": {
+              "Physical": 20
+            }
+          },
+          "DamageEffects": {
+            "WorldSoundEventId": "SFX_Bomb_Fire_Goblin_Death",
+            "WorldParticles": [
+              {
+                "SystemId": "Impact_Explosion",
+                "PositionOffset": {
+                  "X": 0.0,
+                  "Y": -3.5,
+                  "Z": 0.0
+                }
+              },
+              {
+                "SystemId": "Explosion_Big",
+                "TargetEntityPart": "Entity",
+                "PositionOffset": {
+                  "X": 0.0,
+                  "Y": 1.5,
+                  "Z": 0.0
+                }
+              }
+            ],
+            "Knockback": {
+              "Type": "Point",
+              "Force": 20.0,
+              "VelocityType": "Add",
+              "VelocityConfig": {
+                "AirResistance": 0.97,
+                "AirResistanceMax": 0.96,
+                "GroundResistance": 0.94,
+                "GroundResistanceMax": 0.3,
+                "Threshold": 3.0,
+                "Style": "Exp"
+              }
+            }
+          }
+        },
+        {
+          "Type": "ApplyEffect",
+          "Entity": "Target",
+          "EffectId": "Slow",
+          "RunTime": 0.1,
+          "Next": {
+            "Type": "RemoveEntity",
+            "Entity": "User"
+          }
+        }
+      ]
+    },
+    "ProjectileBounce": {
+      "Cooldown": {
+        "Cooldown": 0.0
+      },
+      "Interactions": [
+        {
+          "Type": "Simple",
+          "RunTime": 0.0,
+          "Effects": {
+            "WorldSoundEventId": "SFX_Goblin_Lobber_Bomb_Bounce"
+          }
+        }
+      ]
+    },
+    "ProjectileMiss": {
+      "Cooldown": {
+        "Cooldown": 0.0
+      },
+      "Interactions": [
+        {
+          "Type": "Explode",
+          "Config": {
+            "DamageEntities": true,
+            "DamageBlocks": false,
+            "EntityDamage": 60.0,
+            "EntityDamageRadius": 7.0,
+            "Knockback": {
+              "Type": "Point",
+              "Force": 20.0,
+              "VelocityType": "Add",
+              "VelocityConfig": {
+                "AirResistance": 0.97,
+                "AirResistanceMax": 0.96,
+                "GroundResistance": 0.94,
+                "GroundResistanceMax": 0.3,
+                "Threshold": 3.0,
+                "Direction": {
+                  "X": 0.0,
+                  "Y": 5.0,
+                  "Z": 0.0
+                }
+              }
+            }
+          },
+          "Effects": {
+            "WorldSoundEventId": "SFX_Bomb_Fire_Goblin_Death",
+            "Particles": [
+              {
+                "SystemId": "Impact_Explosion",
+                "TargetEntityPart": "Entity",
+                "DetachedFromModel": false
+              },
+              {
+                "SystemId": "Explosion_Big",
+                "TargetEntityPart": "Entity"
+              }
+            ]
+          },
+          "Next": {
+            "Type": "RemoveEntity",
+            "Entity": "User"
+          }
+        }
+      ]
+    }
+  }
+}

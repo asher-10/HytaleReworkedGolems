@@ -1,0 +1,112 @@
+{
+  "Model": "Frost_Golem_Ball",
+  "SpawnRotationOffset": {
+    "Pitch": 0.0,
+    "Yaw": 0.0,
+    "Roll": 45
+  },
+  "Physics": {
+    "Type": "Standard",
+    "Gravity": -1.0,
+    "TerminalVelocityAir": 15,
+    "TerminalVelocityWater": 15,
+    "RotationMode": "VelocityDamped",
+    "SticksVertically": true
+  },
+  "LaunchForce": 15,
+  "SpawnOffset": {
+    "X": 0.2,
+    "Y": 0.0,
+    "Z": 1.0
+  },
+  "Interactions": {
+    "ProjectileHit": {
+      "Cooldown": {
+        "Cooldown": 0
+      },
+      "Interactions": [
+        {
+          "Type": "DamageEntity",
+          "DamageCalculator": {
+            "BaseDamage": {
+              "Physical": 20
+            }
+          },
+          "DamageEffects": {
+            "WorldSoundEventId": "SFX_Bomb_Fire_Goblin_Death",
+            "WorldParticles": [
+              {
+                "SystemId": "Impact_Explosion",
+                "PositionOffset": {
+                  "X": 0.0,
+                  "Y": -3.5,
+                  "Z": 0.0
+                }
+              },
+              {
+                "SystemId": "Explosion_Big",
+                "PositionOffset": {
+                  "X": 0.0,
+                  "Y": 1.5,
+                  "Z": 0.0
+                },
+                "TargetEntityPart": "Entity"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "ProjectileMiss": {
+      "Cooldown": {
+        "Cooldown": 0.0
+      },
+      "Interactions": [
+        {
+          "Type": "Explode",
+          "Config": {
+            "DamageEntities": true,
+            "DamageBlocks": false,
+            "EntityDamage": 20.0,
+            "EntityDamageRadius": 7
+          },
+          "Effects": {
+            "WorldSoundEventId": "SFX_Bomb_Fire_Goblin_Death",
+            "Particles": [
+              {
+                "SystemId": "Impact_Explosion",
+                "TargetEntityPart": "Entity",
+                "DetachedFromModel": false
+              },
+              {
+                "SystemId": "Explosion_Big",
+                "TargetEntityPart": "Entity"
+              }
+            ]
+          }
+        },
+        {
+          "Type": "Selector",
+          "RunTime": 0.1,
+          "Selector": {
+            "Id": "AOECircle",
+            "Range": 7
+          },
+          "HitEntity": {
+            "Interactions": [
+              {
+                "Type": "ApplyEffect",
+                "Entity": "Target",
+                "EffectId": "Slow"
+              }
+            ]
+          },
+          "Next": {
+            "Type": "RemoveEntity",
+            "Entity": "User"
+          }
+        }
+      ]
+    }
+  }
+}

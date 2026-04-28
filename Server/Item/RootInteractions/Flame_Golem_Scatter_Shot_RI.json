@@ -1,0 +1,13 @@
+{
+  "Cooldown": {
+    "Cooldown": 2
+  },
+  "Interactions": [
+    "Flame_Golem_Scatter_Shot"
+  ],
+  "Tags": {
+    "Attack": [
+      "Ranged"
+    ]
+  }
+}

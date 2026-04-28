@@ -1,0 +1,63 @@
+{
+  "Type": "Simple",
+  "RunTime": 1.4,
+  "Effects": {
+    "ItemPlayerAnimationsId": "Golem_Crystal_Thunder_Default",
+    "ItemAnimationId": "SpinHeavy"
+  },
+  "Next": {
+    "Type": "Projectile",
+    "Config": "Projectile_Config_Flame_Golem_Scatter_Shot",
+    "RunTime": 0.0,
+    "Tags": { "AimingReference": [] },
+
+    "Next": {
+      "Type": "Projectile",
+      "Config": "Projectile_Config_Flame_Golem_Scatter_Shot2",
+      "RunTime": 0.2,
+      "Tags": { "AimingReference": [] },
+
+      "Next": {
+        "Type": "Projectile",
+        "Config": "Projectile_Config_Flame_Golem_Scatter_Shot3",
+        "RunTime": 0.2,
+        "Tags": { "AimingReference": [] },
+
+        "Next": {
+          "Type": "Projectile",
+          "Config": "Projectile_Config_Flame_Golem_Scatter_Shot4",
+          "RunTime": 0.2,
+          "Tags": { "AimingReference": [] },
+
+          "Next": {
+            "Type": "Projectile",
+            "Config": "Projectile_Config_Flame_Golem_Scatter_Shot5",
+            "RunTime": 0.2,
+            "Tags": { "AimingReference": [] },
+
+            "Next": {
+              "Type": "Projectile",
+              "Config": "Projectile_Config_Flame_Golem_Scatter_Shot6",
+              "RunTime": 0.2,
+              "Tags": { "AimingReference": [] },
+
+              "Next": {
+                "Type": "Projectile",
+                "Config": "Projectile_Config_Flame_Golem_Scatter_Shot7",
+                "RunTime": 0.2,
+                "Tags": { "AimingReference": [] },
+
+                "Next": {
+                  "Type": "Projectile",
+                  "Config": "Projectile_Config_Flame_Golem_Scatter_Shot8",
+                  "RunTime": 0.2,
+                  "Tags": { "AimingReference": [] }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

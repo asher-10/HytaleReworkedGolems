@@ -1,0 +1,108 @@
+{
+  "Type": "Simple",
+  "Effects": {
+    "Particles": []
+  },
+  "RunTime": 1,
+  "Next": {
+    "Type": "Simple",
+    "Effects": {
+      "ItemPlayerAnimationsId": "Golem_Crystal_Thunder_Default",
+      "ItemAnimationId": "SwingLeft"
+    },
+    "$Comment": "Prepare Delay",
+    "RunTime": 0.417,
+    "Next": {
+      "Type": "Parallel",
+      "$Comment": "Make sure this parallel interaction is needed and can\u0027t be optimized away",
+      "Interactions": [
+        {
+          "Interactions": [
+            {
+              "Type": "Selector",
+              "$Comment": "Length of Combat",
+              "RunTime": 0.083,
+              "Selector": {
+                "Id": "Horizontal",
+                "Direction": "ToLeft",
+                "TestLineOfSight": true,
+                "ExtendTop": 0.5,
+                "ExtendBottom": 0.5,
+                "StartDistance": 0.5,
+                "EndDistance": 3,
+                "Length": 360,
+                "RollOffset": 30,
+                "YawStartOffset": -45
+              },
+              "HitEntity": {
+                "Interactions": [
+                  {
+                    "Type": "Replace",
+                    "DefaultValue": {
+                      "Interactions": [
+                        "NPC_Attack_Melee_Damage_Frost_Golem_Right"
+                      ]
+                    },
+                    "Var": "Melee_Damage"
+                  },
+                  {
+                    "Type": "ApplyEffect",
+                    "Entity": "Target",
+                    "EffectId": "Slow"
+                  }
+                ]
+              },
+              "Next": {
+                "Type": "Simple",
+                "RunTime": 0.333
+              }
+            }
+          ]
+        },
+        {
+          "Interactions": [
+            {
+              "Type": "Simple",
+              "$Comment": "Length of Effect",
+              "RunTime": 0.25,
+              "Effects": {
+                "Particles": [
+                  {
+                    "PositionOffset": {
+                      "X": 0,
+                      "Y": 1.2,
+                      "Z": 3
+                    },
+                    "RotationOffset": {
+                      "Pitch": 0,
+                      "Roll": 0,
+                      "Yaw": 0
+                    },
+                    "TargetEntityPart": "Entity",
+                    "SystemId": "Block_Break_Ice"
+                  }
+                ],
+                "Trails": [
+                  {
+                    "PositionOffset": {
+                      "X": 0.8,
+                      "Y": 0,
+                      "Z": 0
+                    },
+                    "RotationOffset": {
+                      "Pitch": 0,
+                      "Roll": 90,
+                      "Yaw": 0
+                    },
+                    "TargetEntityPart": "Entity",
+                    "TrailId": "Medium_Default"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
